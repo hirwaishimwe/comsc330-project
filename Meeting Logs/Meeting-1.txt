@@ -1,0 +1,72 @@
+Meeting 1
+Feb 22, 2023
+
+Meeting Schedule: Weekly, 3:15 on Wednesday
+
+Tools:
+	Platform (Tracking and Documentation): Github
+	Language (code) : NEXT MEETING
+	
+Project Name: Calculating Class / Group GPA
+Group Members: Luca Martinez, Hirwa Ishimwe, George Khramtchenko, and Brett Ramella 
+
+
+Understand the Problem
+
+Who has a stake in the solution to the problem? Professor Ruocco, Hirwa, Luca. Brett, George. 
+
+What data, functions, and features are required to properly solve the problem? An executable program
+ that takes file input of sections and groups and outputs their cumulative GPAs
+
+Can the problem be compartmentalized? Is it possible to represent smaller problems that may be 
+easier to understand? Yes
+- Taking file input from the user
+- Parsing the file to get and format the data we need from them
+- Processing the data 
+- Outputting the the result
+
+Can the problem be represented graphically? Can an analysis model be created? - NEXT MEETING
+
+
+
+PRELIMINARY SCOPE STATEMENT
+
+The stakeholders in this project are Professor Ruocco, the client and Hirwa, Luca, Brett, George, the team. 
+The goal of this project is to design and deliver an executable file. That executable file will acquire 
+grades from other text files, and ultimately analyze the data to the fullest. In that process, the 
+executable will determine the GPA of a section, the combined GPA of all the sections in a group, then
+compare the sectional GPA with the grouped GPA and compose differences on the two. A section may be in 
+one or more groups, and a run may include more than one group.
+
+
+Client Requirements
+
+The client will provide data to be analyzed:
+- Data will not change during a specific run of the program
+- The groups and sections in groups may change between runs
+
+
+Team Requirements/ Obligations
+
+Our program generates a report (for each group in a run):
+- Group level: Number of courses, number of students, number of each grade, overall GPA of the group
+- Section level: Number of students, number of each grade, overall GPA of the section, significant 
+  difference from group GPA
+
+Requirements also include:
+- Design and implement a means of computing GPA per section and per group. GPA is based on university 
+  definitions found in the catalog under Grading Policies. Grades of “I”, “W”, “P”, “NP” award no points 
+and are not incorporated into GPA.
+- Design and implement a means of determining if the section GPA is significantly different than the group 
+  GPA (one sample Z-test and we can let z≤-2 or z≥2 be considered significant).
+- Design and implement a means of producing easy to read results
+- Provide final report encompassing the entire effort using a standardized format
+
+Schedule Objectives of when and what the team must deliver to client (Professor Ruocco):
+L11: Presentation and Report
+L17: Interim Presentation
+L20: Prototype Demonstrations
+L26/27: Final Presentation and Report
+
+
+
