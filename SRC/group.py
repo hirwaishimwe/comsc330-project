@@ -24,7 +24,7 @@ class group:
                     sections.append(line)
         return sections
     
-    #get the sections numerical gpas
+    #get the group numerical gpa
     def get_group_gpa_num(self):
         section_gpa_total = 0
         sections = self.get_sections()
@@ -34,7 +34,7 @@ class group:
         group_gpa_num = section_gpa_total/len(sections)
         return group_gpa_num
 
-    #get the sections letter gpas
+    #get the group letter gpa
     def get_group_gpa_letter(self):
         gpa_letter = section.comp_letter_gpa(self.get_group_gpa_num())
         return gpa_letter
