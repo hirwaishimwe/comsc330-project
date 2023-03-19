@@ -103,7 +103,6 @@ class section:
         gpa_letter = self.comp_letter_gpa(self.get_gpa_num())
         return gpa_letter
         
-    
     #get the number of students in the section
     def get_num_students(self):
          return len(self.get_grades())
@@ -116,15 +115,13 @@ class section:
             grade_dictionary [x] += 1
         return grade_dictionary
     
-    ######################### work in progress #######################
-
     #get the section report 
     def section_report(self):
         report = f'''
-        Section Report: {self.get_name()}
-        Number of students, {self.get_num_students()}
-        number of each grade, {self.get_num_each_grd()}
-        overall GPA of the section, {self.get_gpa_letter()}
+     Section Report: {self.get_name()}
+     Number of students, {self.get_num_students()}
+     Number of each grade, {self.get_num_each_grd()}
+     Overall GPA of the section, {self.get_gpa_letter()}
         '''
         return report
 
