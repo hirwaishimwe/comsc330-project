@@ -62,9 +62,7 @@ class group:
         sections = self.get_sections()
         for i in range(0,len(sections)):
             sec = section(sections[i])
-            sections_reports += sec.section_report() + f'''
-       {section_significance[i]}
-            '''
+            sections_reports += sec.section_report() + f'''{section_significance[i]}'''
         return sections_reports
     
     #get the number of each grade in the group
@@ -99,7 +97,7 @@ class group:
         sections = self.get_sections()
         z_scores = self.get_z_scores()
         for i in range(0,len(sections)):
-            report.append("Difference from group GPA : " + z_scores[i] + "\n")
+            report.append("Difference from group GPA: " + z_scores[i] + "\n")
         return report
 
     #get the group report
@@ -111,7 +109,7 @@ class group:
   Number of courses, {len(self.get_sections())} 
   Number of students, {self.get_num_students()}
   Number of each grade, {self.get_num_each_grd()} 
-  Overall GPA of the group, {self.get_group_gpa_letter()}
+  Overall GPA of the group: {self.get_group_gpa_letter()}
   -----------------------------------------------------------------------------------------------------------   
           '''
         return report
