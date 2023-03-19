@@ -1,4 +1,3 @@
-
 from group import group
 
 if __name__ == '__main__':
@@ -35,7 +34,7 @@ if __name__ == '__main__':
     #get the number of students in the group
     test = test_group.get_num_students()
     print(f'{test} \n')
-
+    
     #get the section reports
     test = test_group.get_section_reports()
     print(f'{test} \n')
@@ -51,4 +50,3 @@ if __name__ == '__main__':
     #get the group report
     test = test_group.group_report()
     print(f'{test} \n')
-    

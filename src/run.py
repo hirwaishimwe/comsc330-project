@@ -8,7 +8,7 @@ class run:
     #get the run name
     def get_name(self):
         with open(self.run_file, 'r') as file:
-            name = file.readline()
+            name = file.readline().strip()
         return name
     
     #get the run groups
@@ -26,19 +26,30 @@ class run:
 
     #get the reports for the run
     def reports(self):
-        report_for_all_grp = []
+        report_for_all_grp = ""
         for grp in self.get_groups():
-            report_for_grp = []
             grp_ = group (grp)
-            report_for_grp.append(grp_.group_report())
-            report_for_grp.append(grp_.get_section_reports())
-            report_for_all_grp.append(report_for_grp)
-        return report_for_all_grp
+            report_for_grp = grp_.group_report()
+            report_for_grp += grp_.get_section_reports()
+            report_for_all_grp += report_for_grp 
+        return report_for_all_grp + '''
+############################################# END OF THE REPORT #############################################'''
     
-#################---WORK IN PROGRESS---########################
+    #function to add an intro to the ouput text
+    def ouput_text(self):
+        groups =''
+        for group in self.get_groups():
+            groups += group + "  "
+        intro_txt = f'''
 
-    #Output methods  
-    def output():
-        pass
-        #write the report to a text file
-        # GUI ?
+        Run File: {self.get_name()}
+        Groups in Run: {groups}
+
+############################################## START OF THE REPORT ##########################################
+        '''
+        return intro_txt + self.reports()
+    
+    #Output  
+    def output(self):
+        with open('Report.txt', 'w') as file:
+            file.write(self.ouput_text())

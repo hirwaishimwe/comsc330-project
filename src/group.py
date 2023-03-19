@@ -10,7 +10,7 @@ class group:
     #get the group name
     def get_name(self):
         with open(self.group_file, 'r') as file:
-            name = file.readline()
+            name = file.readline().strip()
         return name
     
     #get sections in the group
@@ -24,7 +24,7 @@ class group:
                     sections.append(line)
         return sections
     
-    #get the group numerical gpa
+    #get the sections numerical gpas
     def get_group_gpa_num(self):
         section_gpa_total = 0
         sections = self.get_sections()
@@ -34,7 +34,7 @@ class group:
         group_gpa_num = section_gpa_total/len(sections)
         return group_gpa_num
 
-    #get the group letter gpa
+    #get the sections letter gpas
     def get_group_gpa_letter(self):
         gpa_letter = section.comp_letter_gpa(self.get_group_gpa_num())
         return gpa_letter
@@ -57,7 +57,7 @@ class group:
     
     #get the section reports
     def get_section_reports(self):
-        sections_reports = ""
+        sections_reports = ''
         for i in self.get_sections():
             sec = section(i)
             sections_reports += sec.section_report()
@@ -80,7 +80,6 @@ class group:
         section_deviations = []
         pop_mean = self.get_group_gpa_num()
         pop_stdev = statistics.stdev(self.get_sections_gpas())
-
         for i in self.get_sections_gpas():
             sample_mean = i
             z = (sample_mean - pop_mean)/ pop_stdev
@@ -102,11 +101,13 @@ class group:
     #get the group report
     def group_report(self):
         report = f'''
- Group Report: {self.get_name()}
- Number of courses, {len(self.get_sections())}
- Number of students, {self.get_num_students()}
- Number of each grade, {self.get_num_each_grd()}
- Overall GPA of the group, {self.get_group_gpa_letter()}
-
-'''
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+ Group level: {self.get_name()}
+  Number of courses, {len(self.get_sections())} 
+  Number of students, {self.get_num_students()}
+  Number of each grade, {self.get_num_each_grd()} 
+  Overall GPA of the group, {self.get_group_gpa_letter()}
+  -----------------------------------------------------------------------------------------------------------   
+          '''
         return report

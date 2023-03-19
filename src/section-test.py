@@ -1,9 +1,8 @@
-
 from section import section
 
 if __name__ == '__main__':
     
-    # a section file object for testing
+    # a section file for testing
     test_section = section(('COMSC110S20.SEC'))
 
 #method tests for section

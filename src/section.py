@@ -119,9 +119,8 @@ class section:
     def section_report(self):
         report = f'''
      Section Report: {self.get_name()}
-       Number of students, {self.get_num_students()}
-       Number of each grade, {self.get_num_each_grd()}
-       Overall GPA of the section, {self.get_gpa_letter()}
+       Number of students, {self.get_num_students()} 
+       Number of each grade, {self.get_num_each_grd()} 
+       Overall GPA of the section, {self.get_gpa_letter()} 
         '''
         return report
-

@@ -1,4 +1,3 @@
-
 from run import run
 
 if __name__ == "__main__":
@@ -19,10 +18,6 @@ if __name__ == "__main__":
     #get the report this run
     test = test_run.reports()
     print(f'{test} \n')
-    
-###############------ WORK IN PROGRESS -----###############
-'''
+
     #test getting the run output
     test_run.output()
-
-'''

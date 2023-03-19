@@ -1,5 +1,3 @@
-#########------ WORK IN PROGRESS -----##########
-
 from run import run
 
 if __name__ == "__main__":
