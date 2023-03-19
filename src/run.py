@@ -51,5 +51,5 @@ class run:
     
     #Output  
     def output(self):
-        with open('Report.txt', 'w') as file:
+        with open(input("Enter output file name: ") + '.txt', 'w') as file:
             file.write(self.ouput_text())
