@@ -34,7 +34,7 @@ class run:
             grp_ = group (grp)
             report_for_grp.append(grp_.group_report())
             report_for_grp.append(grp_.get_section_reports())
-            report_for_all_grp.append(report_for_all_grp)
+            report_for_all_grp.append(report_for_grp)
         return report_for_all_grp
 
     #Output methods  

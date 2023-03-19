@@ -16,13 +16,12 @@ if __name__ == "__main__":
     test = test_run.get_groups()
     print(f'{test} \n')
 
-###############------ WORK IN PROGRESS -----###############
-
-'''
     #get the report this run
     test = test_run.reports()
     print(f'{test} \n')
-
+    
+###############------ WORK IN PROGRESS -----###############
+'''
     #test getting the run output
     test_run.output()
 
