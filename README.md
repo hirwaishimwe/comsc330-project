@@ -9,7 +9,7 @@ The semester long project for COMSC 330: Principles of Software Design
     - group.py: the group class
     - run.py: the run class
 
-#### dist : contains the executable program build on the mac os 
+#### dist : contains the executable program built on the mac os 
     - (has not be tested on other systems)
 
 #### test : contains test files and data 
