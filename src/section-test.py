@@ -32,8 +32,6 @@ if __name__ == '__main__':
     test = test_section.get_num_each_grd()
     print(test)
 
-##############---- WORK IN PROGRESS ---###################
     #get the section report 
-    print("--------------- WORK IN PROGRESS -----------------")
-    test = test_section.section_report
+    test = test_section.section_report()
     print(test)
