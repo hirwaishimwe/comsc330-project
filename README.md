@@ -13,6 +13,6 @@ The semester long project for COMSC 330: Principles of Software Design
     - (has not be tested on other systems)
 
 #### test : contains test files and data 
-    - the test files for each class, along with the classes
+    - the test programs for each class, along with the files for the classes
     - test data
     - an example output based on the test data
