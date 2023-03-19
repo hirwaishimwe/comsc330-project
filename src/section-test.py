@@ -10,28 +10,28 @@ if __name__ == '__main__':
 
     #get section name
     test = test_section.get_name()
-    print(test)
+    print(f'{test} \n')
 
     #get the grades of a section
     test = test_section.get_grades()
-    print(test)
+    print(f'{test} \n')
 
     #get the number of students in the section
     test = test_section.get_num_students()
-    print(test)
+    print(f'{test} \n')
 
      #get the number gpa of the section
     test = test_section.get_gpa_num()
-    print(test)
+    print(f'{test} \n')
 
      #get letter gpa of the section
     test = test_section.get_gpa_letter()
-    print(test)
+    print(f'{test} \n')
 
      #get number of each in the section
     test = test_section.get_num_each_grd()
-    print(test)
+    print(f'{test} \n')
 
     #get the section report 
     test = test_section.section_report()
-    print(test)
+    print(f'{test} \n')

@@ -10,18 +10,18 @@ if __name__ == "__main__":
 
     #get the run name
     test = test_run.get_name()
-    print(test)
+    print(f'{test} \n')
 
     # get the run groups
     test = test_run.get_groups()
-    print(test)
+    print(f'{test} \n')
 
 ###############------ WORK IN PROGRESS -----###############
 
 '''
     #get the report this run
     test = test_run.reports()
-    print(test)
+    print(f'{test} \n')
 
     #test getting the run output
     test_run.output()
