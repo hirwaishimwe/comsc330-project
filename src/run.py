@@ -22,8 +22,6 @@ class run:
                     groups.append(line)
         return groups
     
-#################---WORK IN PROGRESS---########################
-
     ##processing methods
 
     #get the reports for the run
@@ -36,6 +34,8 @@ class run:
             report_for_grp.append(grp_.get_section_reports())
             report_for_all_grp.append(report_for_grp)
         return report_for_all_grp
+    
+#################---WORK IN PROGRESS---########################
 
     #Output methods  
     def output():

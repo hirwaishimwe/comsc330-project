@@ -57,10 +57,10 @@ class group:
     
     #get the section reports
     def get_section_reports(self):
-        sections_reports = []
+        sections_reports = ""
         for i in self.get_sections():
             sec = section(i)
-            sections_reports.append(sec.section_report())
+            sections_reports += sec.section_report()
         return sections_reports
     
     #get the number of each grade in the group
