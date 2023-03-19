@@ -18,6 +18,10 @@ if __name__ == "__main__":
     #get the report this run
     test = test_run.reports()
     print(f'{test} \n')
+    
+    #function to add an intro to the ouput text
+    test = test_run.ouput_text()
+    print(f'{test} \n')
 
     #test getting the run output
     test_run.output()

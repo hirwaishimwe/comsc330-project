@@ -44,7 +44,7 @@ if __name__ == '__main__':
     print(f'{test} \n')
 
     #get the significance report for the group and sections
-    test = test_group.signficance_report()
+    test = test_group.signficance_reports()
     print(f'{test} \n')
 
     #get the group report

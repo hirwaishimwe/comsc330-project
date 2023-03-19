@@ -58,9 +58,13 @@ class group:
     #get the section reports
     def get_section_reports(self):
         sections_reports = ''
-        for i in self.get_sections():
-            sec = section(i)
-            sections_reports += sec.section_report()
+        section_significance = self.signficance_reports()
+        sections = self.get_sections()
+        for i in range(0,len(sections)):
+            sec = section(sections[i])
+            sections_reports += sec.section_report() + f'''
+       {section_significance[i]}
+            '''
         return sections_reports
     
     #get the number of each grade in the group
@@ -90,12 +94,12 @@ class group:
         return section_deviations
     
     #get the significance report for the group and sections
-    def signficance_report(self):
-        report = "Each section's difference from the group: \n"
+    def signficance_reports(self):
+        report = []
         sections = self.get_sections()
         z_scores = self.get_z_scores()
         for i in range(0,len(sections)):
-            report += sections[i] +" : " + z_scores[i] + "\n"
+            report.append("Difference from group GPA : " + z_scores[i] + "\n")
         return report
 
     #get the group report

@@ -41,7 +41,6 @@ class run:
         for group in self.get_groups():
             groups += group + "  "
         intro_txt = f'''
-
         Run File: {self.get_name()}
         Groups in Run: {groups}
 
