@@ -99,15 +99,14 @@ class group:
             report += sections[i] +" : " + z_scores[i] + "\n"
         return report
 
-##############################------ work in progress -----########################
-
     #get the group report
     def group_report(self):
         report = f'''
-        Group level: {self.get_name()}
-        Number of courses {len(self.get_sections)} 
-        number of students {self.get_num_students()}
-        number of each grade {self.get_num_each_grd()} 
-        overall GPA of the group {self.get_group_gpa_letter()}   
-          '''
+ Group Report: {self.get_name()}
+ Number of courses, {len(self.get_sections())}
+ Number of students, {self.get_num_students()}
+ Number of each grade, {self.get_num_each_grd()}
+ Overall GPA of the group, {self.get_group_gpa_letter()}
+
+'''
         return report

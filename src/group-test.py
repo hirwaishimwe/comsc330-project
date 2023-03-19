@@ -48,10 +48,7 @@ if __name__ == '__main__':
     test = test_group.signficance_report()
     print(f'{test} \n')
 
-#---------------------- WORK IN PROGRESS ------------------------------
-'''
     #get the group report
     test = test_group.group_report()
     print(f'{test} \n')
     
-'''
