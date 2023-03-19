@@ -55,8 +55,14 @@ class group:
             total_students += sec.get_num_students()
         return total_students
     
-##############################------ work in progress -----########################
-
+    #get the section reports
+    def get_section_reports(self):
+        sections_reports = []
+        for i in self.get_sections():
+            sec = section(i)
+            sections_reports.append(sec.section_report())
+        return sections_reports
+    
     #get the number of each grade in the group
     def get_num_each_grd(self):
         grades = []
@@ -70,7 +76,8 @@ class group:
     
     #get the z-score for the sections
     def get_z_scores(self):
-        dev = []
+        # a list to store the significance of each section's deviation
+        section_deviations = []
         pop_mean = self.get_group_gpa_num()
         pop_stdev = statistics.stdev(self.get_sections_gpas())
 
@@ -78,9 +85,12 @@ class group:
             sample_mean = i
             z = (sample_mean - pop_mean)/ pop_stdev
             if z <= -2 or z >= 2:
-                dev.append("Significant")
+                section_deviations.append("Significant")
             else:
-                dev.append("Not Significant")
+                section_deviations.append("Not Significant")
+        return section_deviations
+
+##############################------ work in progress -----########################
 
     #get the group report
     def group_report(self):
@@ -101,12 +111,3 @@ class group:
         for i in range(0,len(sections - 1)):
             report += sections[i] +" : " + z_scores[i] + "\n"
         return report
-    
-    #get the section reports
-    def get_section_reports(self):
-        sections_reports = []
-        for i in self.get_sections():
-            sec = section(i)
-            sections_reports.append(sec.section_report())
-        return sections_reports
-    

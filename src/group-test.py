@@ -35,9 +35,7 @@ if __name__ == '__main__':
     #get the number of students in the group
     test = test_group.get_num_students()
     print(test)
-    
-#--------- WORK IN PROGRESS ------------
-'''
+
     #get the section reports
     test = test_group.get_section_reports()
     print(test)
@@ -46,6 +44,9 @@ if __name__ == '__main__':
     test = test_group.get_z_scores()
     print(test)
 
+#---------------------- WORK IN PROGRESS ------------------------------
+
+'''
     #get the significance report for the group and sections
     test = test_group.signficance_report()
     print(test)
