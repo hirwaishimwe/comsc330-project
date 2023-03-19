@@ -44,13 +44,12 @@ if __name__ == '__main__':
     test = test_group.get_z_scores()
     print(test)
 
-#---------------------- WORK IN PROGRESS ------------------------------
-
-'''
     #get the significance report for the group and sections
     test = test_group.signficance_report()
     print(test)
 
+#---------------------- WORK IN PROGRESS ------------------------------
+'''
     #get the group report
     test = test_group.group_report()
     print(test)

@@ -89,6 +89,15 @@ class group:
             else:
                 section_deviations.append("Not Significant")
         return section_deviations
+    
+    #get the significance report for the group and sections
+    def signficance_report(self):
+        report = "Each section's difference from the group: \n"
+        sections = self.get_sections()
+        z_scores = self.get_z_scores()
+        for i in range(0,len(sections)):
+            report += sections[i] +" : " + z_scores[i] + "\n"
+        return report
 
 ##############################------ work in progress -----########################
 
@@ -101,13 +110,4 @@ class group:
         number of each grade {self.get_num_each_grd()} 
         overall GPA of the group {self.get_group_gpa_letter()}   
           '''
-        return report
-    
-    #get the significance report for the group and sections
-    def signficance_report(self):
-        report = "Each section's difference from the group: \n"
-        sections = self.get_sections()
-        z_scores = self.get_z_scores()
-        for i in range(0,len(sections - 1)):
-            report += sections[i] +" : " + z_scores[i] + "\n"
         return report
