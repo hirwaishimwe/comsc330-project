@@ -17,3 +17,8 @@ The semester long project for COMSC 330: Principles of Software Design
     - the test programs for each class, along with the files for the classes
     - test data
     - an example output based on the test data
+
+### TO-DO
+    - Change letter to number grade translation
+    - Add percent of each grade list to report
+      - Distribution Graphs?
