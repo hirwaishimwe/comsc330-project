@@ -1,6 +1,10 @@
 from group import group
+import os
 
 if __name__ == '__main__':
+
+    #change to the test directory
+    os.chdir('./test')
     
     # a  group file for testing
     test_group = group('COMSC110.GRP')
@@ -21,10 +25,6 @@ if __name__ == '__main__':
 
     #get the group numerical gpas
     test = test_group.get_group_gpa_num()
-    print(f'{test} \n')
-
-    #get the sectiosn letter gpas
-    test = test_group.get_group_gpa_letter()
     print(f'{test} \n')
 
     #get the number of each grade in the group

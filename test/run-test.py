@@ -1,9 +1,13 @@
 from run import run
+import os
 
 if __name__ == "__main__":
 
+    #change to test directory
+    os.chdir("./test")
+    
     #test inputting a file and creating a run obj
-    test_run = run (input("Enter Run file: "))
+    test_run = run ("TESTRUN.RUN")
 
 # run method tests
 

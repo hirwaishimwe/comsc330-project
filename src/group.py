@@ -34,11 +34,6 @@ class group:
         group_gpa_num = section_gpa_total/len(sections)
         return group_gpa_num
 
-    #get the sections letter gpas
-    def get_group_gpa_letter(self):
-        gpa_letter = section.comp_letter_gpa(self.get_group_gpa_num())
-        return gpa_letter
-
     #get the sections numerical gpas
     def get_sections_gpas(self):
         sections_gpas = []
@@ -110,7 +105,7 @@ class group:
   Number of courses, {len(self.get_sections())} 
   Number of students, {self.get_num_students()}
   Number of each grade, {self.get_num_each_grd()} 
-  Overall GPA of the group: {self.get_group_gpa_letter()}
+  Overall GPA of the group: {self.get_group_gpa_num() : 0.2f}
   -----------------------------------------------------------------------------------------------------------   
           '''
         return report
