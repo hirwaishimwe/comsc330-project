@@ -21,3 +21,4 @@ The semester long project for COMSC 330: Principles of Software Design
 ### TO-DO
     - Add percent of each grade list to report
       - Distribution Graphs?
+    - Update executables
