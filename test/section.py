@@ -72,12 +72,23 @@ class section:
     def get_num_students(self):
          return len(self.get_grades())
 
+    
     #get number of each in the section
     def get_num_each_grd(self):
         grades = self.get_grades()
-        grade_dictionary = dict.fromkeys(set(grades),0)
+    
+        val_grades = ["A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"]
+
+        grade_dictionary = dict.fromkeys(val_grades,0)
+
         for x in grades:
-            grade_dictionary [x] += 1
+            if x in val_grades:
+                grade_dictionary [x] += 1
+
+        for i in list(grade_dictionary.keys()): 
+            if grade_dictionary[i] == 0:
+                del grade_dictionary[i]
+
         return grade_dictionary
     
     #get the section report 
