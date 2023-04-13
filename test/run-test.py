@@ -26,6 +26,6 @@ if __name__ == "__main__":
     #function to add an intro to the ouput text
     test = test_run.ouput_text()
     print(f'{test} \n')
-
+    
     #test getting the run output
     test_run.output()

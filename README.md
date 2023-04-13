@@ -19,9 +19,4 @@ The semester long project for COMSC 330: Principles of Software Design
     - an example output based on the test data
 
 ### TO-DO
-    - REMOVE un-needed grades from the number of each grade part of the report 
-    - Alphabetize the set
-    - Make and Add the distribution Charts
-      - Add percent of each grade list to report?
-      - Distribution Graphs?
     - Update executables

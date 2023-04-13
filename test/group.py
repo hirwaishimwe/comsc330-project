@@ -66,17 +66,18 @@ class group:
         for i in self.get_sections():
             sec = section(i)
             grades += sec.get_grades()
+        #list of valid grades
         val_grades = ["A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"]
+        #create a dictionary from the list of valid grades
         grade_dictionary = dict.fromkeys(val_grades,0)
-
+        #increment the values of the dictionary keys to get the number of each grade
         for x in grades:
             if x in val_grades:
                 grade_dictionary [x] += 1
-
+        #delete grades that are not their, ie, == 0
         for i in list(grade_dictionary.keys()): 
             if grade_dictionary[i] == 0:
                 del grade_dictionary[i]
-
         return grade_dictionary
     
     #get the z-score for the sections

@@ -76,19 +76,18 @@ class section:
     #get number of each in the section
     def get_num_each_grd(self):
         grades = self.get_grades()
-    
+        #list of valid grades
         val_grades = ["A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"]
-
+        #create a dictionary from the list of valid grades
         grade_dictionary = dict.fromkeys(val_grades,0)
-
+        #increment the values of the dictionary keys to get the number of each grade
         for x in grades:
             if x in val_grades:
                 grade_dictionary [x] += 1
-
+        #delete grades that are not their, ie, == 0
         for i in list(grade_dictionary.keys()): 
             if grade_dictionary[i] == 0:
                 del grade_dictionary[i]
-
         return grade_dictionary
     
     #get the section report 

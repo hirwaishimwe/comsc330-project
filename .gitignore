@@ -1,1 +1,4 @@
 .DS_Store
+test/__pycache__/group.cpython-310.pyc
+test/__pycache__/run.cpython-310.pyc
+test/__pycache__/section.cpython-310.pyc
