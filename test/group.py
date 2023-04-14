@@ -1,5 +1,7 @@
 from section import section
 import statistics
+from reportlab.platypus import Paragraph, Spacer, Image
+from reportlab.lib.styles import getSampleStyleSheet
 
 class group:
 
@@ -52,12 +54,25 @@ class group:
     
     #get the section reports
     def get_section_reports(self):
-        sections_reports = ''
+        sections_reports = []
         section_significance = self.signficance_reports()
         sections = self.get_sections()
         for i in range(0,len(sections)):
             sec = section(sections[i])
-            sections_reports += sec.section_report() + f'''{section_significance[i]}'''
+            text = sec.section_report() + f'''{section_significance[i]}'''
+            # Get sample styles
+            styles = getSampleStyleSheet()
+            paragraph = Paragraph(text, style = styles["Normal"])
+            sections_reports.append(paragraph)
+            sections_reports.append(Spacer(1, 6))
+            graph_color = '#87CEFA'
+            if section_significance[i] == "Significant":
+                graph_color = '#ff7f0e'
+            section.make_plot(sec.get_num_each_grd(), sec.get_name(), graph_color)
+            img = Image(f"{sec.get_name()}.png", width = 300, height = 200)
+            img.hAlign = 'CENTER'  # Set the horizontal alignment
+            sections_reports.append(img)
+            sections_reports.append(Spacer(1, 12))
         return sections_reports
     
     #get the number of each grade in the group
@@ -100,21 +115,21 @@ class group:
         report = []
         sections = self.get_sections()
         z_scores = self.get_z_scores()
+        tab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
         for i in range(0,len(sections)):
-            report.append("Difference from group GPA: " + z_scores[i] + "\n")
+            report.append(f"{tab}{tab}Difference from group GPA: " + z_scores[i] + "\n")
         return report
 
     #get the group report
     def group_report(self):
-        report = f'''
--------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------
- 
- Group level: {self.get_name()}
-  Number of courses, {len(self.get_sections())} 
-  Number of students, {self.get_num_students()}
-  Number of each grade, {self.get_num_each_grd()} 
-  Overall GPA of the group: {self.get_group_gpa_num() : 0.2f}
-  -----------------------------------------------------------------------------------------------------------   
-          '''
+        report = (
+            f"*************************************************************************************************************<br/>"
+            f"*************************************************************************************************************<br/>"
+            f"<br/>"
+            f"Group level: {self.get_name()}<br/>"
+            f"  Number of courses: {len(self.get_sections())}<br/>"
+            f"  Number of students: {self.get_num_students()}<br/>"
+            f"  Number of each grade: {self.get_num_each_grd()}<br/>"
+            f"  Overall GPA of the group: {self.get_group_gpa_num():0.2f}<br/>"
+        )
         return report

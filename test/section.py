@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+import math
 
 class section:
 
@@ -92,10 +94,38 @@ class section:
     
     #get the section report 
     def section_report(self):
-        report = f'''
-     Section Report: {self.get_name()}
-       Number of students, {self.get_num_students()} 
-       Number of each grade, {self.get_num_each_grd()} 
-       Overall GPA of the section: {self.get_gpa_num() : 0.2f} 
-       '''
+        tab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+        report = (
+            f"{tab}Section Report: {self.get_name()}<br/>"
+            f"  {tab}{tab}Number of students: {self.get_num_students()}<br/>"
+            f"  {tab}{tab}Number of each grade: {self.get_num_each_grd()}<br/>"
+            f"  {tab}{tab}Overall GPA of the section: {self.get_gpa_num():0.2f}<br/>"
+        )
         return report
+
+    #a static method that will be used to make grade ditribution graphs for the sections and groups
+    @staticmethod
+    def make_plot(grade_set, name, color):
+        data = grade_set
+        # Extract keys and values from the dictionary
+        keys = list(data.keys())
+        values = list(data.values())
+        #edgecolor = 'black'
+        #linewidth = 1
+        color = color
+    
+        # Create a bar chart with sorted keys and values
+        plt.bar(x = keys, height = values, color = color)
+
+        # Add title and axis labels
+        plt.title(f'{name} Group Distribution Graph')
+        plt.xlabel('Grade')
+        plt.ylabel('Number Of Each Grade')
+        plt.yticks(range(math.ceil(0), math.floor(max(values)) + 1))
+            
+        # Save the plots
+        filename = f'{name}.png'
+        plt.savefig(filename)
+
+        #clear the current figure
+        plt.clf()
