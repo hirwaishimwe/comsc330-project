@@ -1,7 +1,9 @@
 from group import group
+from section import section
 import os
-import matplotlib.pyplot as plt
-import math
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
+from reportlab.lib.styles import getSampleStyleSheet
 
 class run:
     #costructor
@@ -29,59 +31,64 @@ class run:
 
     #get the reports for the run
     def reports(self):
-        report_for_all_grp = ""
+        report_for_all_grp = []
         for grp in self.get_groups():
             grp_ = group (grp)
-            report_for_grp = grp_.group_report()
-            report_for_grp += grp_.get_section_reports()
-            report_for_all_grp += report_for_grp 
-        return report_for_all_grp + '''
-############################################# END OF THE REPORT #############################################'''
+            report_for_grp = []
+            text = grp_.group_report()
+            # Get sample styles
+            styles = getSampleStyleSheet()
+            paragraph = Paragraph(text, style=styles["Normal"])
+            report_for_grp.append(paragraph)
+            report_for_grp.append(Spacer(1, 6))
+            graph_color = '#1f77b4'
+            section.make_plot(grp_.get_num_each_grd(), grp_.get_name(), graph_color)
+            img = Image(f"{grp_.get_name()}.png", width=300, height=200)
+            img.hAlign = 'LEFT'  # Set the horizontal alignment
+            report_for_grp.append(img)
+            report_for_grp.append(Spacer(1, 12))
+            # Add section reports
+            section_reports = grp_.get_section_reports()
+            report_for_grp.extend(section_reports)
+            report_for_all_grp += report_for_grp
+            
+        text = (
+            f'***************************************** END OF THE REPORT *******************************************'
+        )
+        paragraph = Paragraph(text, style=styles["Normal"])
+        report_for_all_grp.append(paragraph)
+        report_for_all_grp.append(Spacer(1, 12))
+        return report_for_all_grp
     
     #function to add an intro to the ouput text
     def ouput_text(self):
+        styles = getSampleStyleSheet()
+        full_report = []
         groups =''
         for group in self.get_groups():
-            groups += group + "  "
+            groups += group + " . "
         intro_txt = f'''
-        Run File: {self.get_name()}
-        Groups in Run: {groups}
-
-############################################## START OF THE REPORT ##########################################
+        Run File: {self.get_name()} <br/>
+        Groups in Run: {groups} <br/>
+        <br/>
         '''
-        return intro_txt + self.reports()
-
-    #make group distribution plots 
-    # make plots function
-    def make_plots(self):
-        for grp in self.get_groups():
-            grp_ = group(grp)
-            data = grp_.get_num_each_grd()
-
-            # Extract keys and values from the dictionary
-            keys = list(data.keys())
-            values = list(data.values())
-
-            # Create a bar chart with sorted keys and values
-            plt.bar(x = keys, height = values)
-
-            # Add title and axis labels
-            plt.title(f'{grp_.get_name()} Group Distribution Graph')
-            plt.xlabel('Grade')
-            plt.ylabel('Number Of Each Grade')
-            plt.yticks(range(math.ceil(0), math.floor(max(values)) + 1))
-            
-            # Save the plots
-            filename = f'Report & Graphs/{grp_.get_name()}.png'
-            plt.savefig(filename)
-            plt.clf()
+        paragraph = Paragraph(intro_txt, style = styles["Normal"])
+        full_report.append(paragraph)
+        full_report.append(Spacer(1, 12))
+        return full_report + self.reports()
 
     #Output  
     def output(self):
-        # Create a new folder if it does not exist
-        if not os.path.exists('Report & Graphs'):
-            os.makedirs('Report & Graphs')
-        # Make and write to the report file
-        with open(f'Report & Graphs/Report.txt', 'w') as file:
-            file.write(self.ouput_text())
-        self.make_plots()
+        name = "Report.pdf"
+        doc = SimpleDocTemplate(name, pagesize = letter)
+        
+        # Build the PDF with the flowables
+        doc.build(self.ouput_text())
+
+        for grp in self.get_groups():
+            grp_ = group (grp)
+            os.remove(f'{grp_.get_name()}.png')
+            sections = grp_.get_sections()
+            for i in range(0,len(sections)):
+                sec = section(sections[i])
+                os.remove(f'{sec.get_name()}.png')
