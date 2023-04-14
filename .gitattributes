@@ -1,1 +1,2 @@
 test/main[[:space:]]mac filter=lfs diff=lfs merge=lfs -text
+test/main.exe filter=lfs diff=lfs merge=lfs -text
