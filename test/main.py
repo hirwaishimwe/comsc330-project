@@ -10,8 +10,8 @@ if __name__ == "__main__":
     # Change the working directory to the directory where the executable is located
     os.chdir(exe_dir)
 
-    #input a file and create a run obj
+    # Input a file and create a run obj
     this_run = run (input("Enter Run file: "))
 
-    #get the run output
+    # Get the run output
     this_run.output()
