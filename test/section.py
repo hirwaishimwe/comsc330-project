@@ -183,4 +183,3 @@ class section:
 
         # Clear the current figure
         plt.clf()
-
