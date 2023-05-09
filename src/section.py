@@ -90,7 +90,7 @@ class section:
             if grade in grades_gpa:
                 total_gpa += grades_gpa[grade]
                 num_grades += 1
-        gpa_num = total_gpa / (num_grades * 2) if num_grades > 0 else 0.00
+        gpa_num = total_gpa / num_grades if num_grades > 0 else 0.00
         return gpa_num
     
     def get_num_students(self) -> int:
