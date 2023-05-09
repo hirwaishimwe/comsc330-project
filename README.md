@@ -8,7 +8,7 @@ The semester long project for COMSC 330: Principles of Software Design
     - group.py: the group class
     - run.py: the run class
 
-#### test : contains test files and data 
-    - the test programs for each class, along with the files for the classes
+#### test : contains test files  
+    - the test programs for each class
 
 ### Data: contains the project data
